@@ -1,0 +1,1 @@
+﻿Keep model classes that are common across features in here.

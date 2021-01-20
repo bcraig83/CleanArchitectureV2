@@ -2,8 +2,10 @@
 
 namespace CleanArchitecture.Domain.Common.Entities
 {
-    public abstract class AuditableEntity
+    public abstract class BaseEntity
     {
+        public int Id { get; set; }
+
         public DateTime Created { get; set; }
 
         // TODO: public string CreatedBy { get; set; }

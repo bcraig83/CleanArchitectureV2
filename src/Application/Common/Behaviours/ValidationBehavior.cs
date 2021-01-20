@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,8 +27,6 @@ namespace Application.Common.Behaviours
             {
                 return await next();
             }
-
-            var context = new ValidationContext(request);
 
             var validationResults = await Task.WhenAll(
                 _validators.Select(v => v.ValidateAsync(request, cancellationToken)));

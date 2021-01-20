@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "exploratory", "exploratory"
 		test\exploratory\.gitkeep = test\exploratory\.gitkeep
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.IntegrationTests", "test\integration\Application.IntegrationTests\Application.IntegrationTests.csproj", "{A944CEB7-F65D-4B63-9D6B-8DEF3D95618B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{D84649D7-39E7-4CAD-A97D-D74738A207C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D84649D7-39E7-4CAD-A97D-D74738A207C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D84649D7-39E7-4CAD-A97D-D74738A207C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A944CEB7-F65D-4B63-9D6B-8DEF3D95618B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A944CEB7-F65D-4B63-9D6B-8DEF3D95618B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A944CEB7-F65D-4B63-9D6B-8DEF3D95618B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A944CEB7-F65D-4B63-9D6B-8DEF3D95618B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{172C6F7B-4D8D-44EF-989A-CCC82848ADE0} = {7043A94D-5106-4976-BE3B-E806CADADC97}
 		{667C7D4E-7892-4206-8848-A7B3C776387C} = {7043A94D-5106-4976-BE3B-E806CADADC97}
 		{E275002F-BF55-437E-8FED-8CF50908C843} = {7043A94D-5106-4976-BE3B-E806CADADC97}
+		{A944CEB7-F65D-4B63-9D6B-8DEF3D95618B} = {172C6F7B-4D8D-44EF-989A-CCC82848ADE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C5D665F7-B26D-4EDD-909A-BA6A15E212EB}

@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.Domain.Common.Events;
+﻿using CleanArchitecture.Domain.Common;
 
 namespace CleanArchitecture.Domain.Events
 {

@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.Domain.Common.Entities;
+﻿using CleanArchitecture.Domain.Common;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DataAccess
+namespace CleanArchitecture.DataAccess
 {
     public static class DependencyInjection
     {

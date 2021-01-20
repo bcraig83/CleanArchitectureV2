@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.Domain.Common.Events;
+﻿using CleanArchitecture.Domain.Common;
 using System.Threading.Tasks;
 
 namespace CleanArchitecture.Application.Common.Interfaces

@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.Domain.Common.ValueObjects;
+﻿using CleanArchitecture.Domain.Common;
 using Shouldly;
 using System.Collections.Generic;
 using Xunit;

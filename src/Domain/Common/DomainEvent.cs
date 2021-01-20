@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CleanArchitecture.Domain.Common.Events
+namespace CleanArchitecture.Domain.Common
 {
     public abstract class DomainEvent
     {

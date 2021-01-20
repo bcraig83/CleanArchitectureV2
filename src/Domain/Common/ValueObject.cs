@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CleanArchitecture.Domain.Common.ValueObjects
+namespace CleanArchitecture.Domain.Common
 {
     // Learn more: https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects
     public abstract class ValueObject
@@ -19,7 +19,7 @@ namespace CleanArchitecture.Domain.Common.ValueObjects
 
         protected static bool NotEqualOperator(ValueObject left, ValueObject right)
         {
-            return !(EqualOperator(left, right));
+            return !EqualOperator(left, right);
         }
 
         protected abstract IEnumerable<object> GetEqualityComponents();

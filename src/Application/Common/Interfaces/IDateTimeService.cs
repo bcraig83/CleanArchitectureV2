@@ -2,7 +2,7 @@
 
 namespace CleanArchitecture.Application.Common.Interfaces
 {
-    internal interface IDateTimeService
+    public interface IDateTimeService
     {
         DateTime Now { get; }
     }

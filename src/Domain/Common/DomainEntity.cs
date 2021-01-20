@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace CleanArchitecture.Domain.Common.Entities
+namespace CleanArchitecture.Domain.Common
 {
     public abstract class DomainEntity
     {
@@ -8,10 +9,11 @@ namespace CleanArchitecture.Domain.Common.Entities
 
         public DateTime Created { get; set; }
 
-        // TODO: public string CreatedBy { get; set; }
-
         public DateTime? LastModified { get; set; }
 
+        public List<DomainEvent> DomainEvents { get; private set; } = new List<DomainEvent>();
+
         // TODO: public string LastModifiedBy { get; set; }
+        // TODO: public string CreatedBy { get; set; }
     }
 }

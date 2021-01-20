@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Application.Common.Interfaces;
+using CleanArchitecture.Integration.Email;
 using CleanArchitecture.Integration.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,7 @@ namespace CleanArchitecture.Integration
             services.AddScoped(x => options);
 
             services.AddTransient<IDateTimeService, DateTimeService>();
+            services.AddTransient<IEmailSender, EmailSender>();
 
             return services;
         }

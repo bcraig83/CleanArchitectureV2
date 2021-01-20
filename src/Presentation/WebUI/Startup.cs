@@ -1,3 +1,6 @@
+using CleanArchitecture.Application;
+using CleanArchitecture.DataAccess;
+using CleanArchitecture.Integration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +22,10 @@ namespace WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddApplication(Configuration);
+            services.AddIntegration(Configuration);
+            services.AddDataAccess(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

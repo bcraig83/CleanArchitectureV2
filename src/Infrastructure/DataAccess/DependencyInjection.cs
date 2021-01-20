@@ -11,9 +11,10 @@ namespace CleanArchitecture.DataAccess
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            var options = configuration
-                .GetSection(DataAccessOptions.AppSettingsFileLocation)
-                .Get<DataAccessOptions>();
+            var options = 
+                configuration.GetSection(DataAccessOptions.AppSettingsFileLocation).Get<DataAccessOptions>() 
+                ?? new DataAccessOptions();
+
             services.AddScoped(x => options);
 
             switch (options.PersistenceMechanism)

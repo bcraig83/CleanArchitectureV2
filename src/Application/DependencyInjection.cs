@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CleanArchitecture.Application.Common.Behaviours;
+using CleanArchitecture.Application.Features.Books.Commands.CreateBook.Services;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -14,10 +15,11 @@ namespace CleanArchitecture.Application
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            var options = configuration
-                .GetSection(ApplicationOptions.AppSettingsFileLocation)
-                .Get<ApplicationOptions>();
+            var options = configuration.GetSection(ApplicationOptions.AppSettingsFileLocation).Get<ApplicationOptions>()
+                ?? new ApplicationOptions();
             services.AddScoped(x => options);
+
+            services.AddScoped<BookMapper>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());

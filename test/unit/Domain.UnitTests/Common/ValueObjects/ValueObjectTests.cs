@@ -3,7 +3,7 @@ using Shouldly;
 using System.Collections.Generic;
 using Xunit;
 
-namespace Domain.UnitTests.Common.ValueObjects
+namespace CleanArchitecture.Domain.UnitTests.Common.ValueObjects
 {
     public class ValueObjectTests
     {

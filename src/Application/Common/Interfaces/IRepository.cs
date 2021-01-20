@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Application.Common.Interfaces
+namespace CleanArchitecture.Application.Common.Interfaces
 {
     public interface IRepository<TEntity> where TEntity : DomainEntity
     {

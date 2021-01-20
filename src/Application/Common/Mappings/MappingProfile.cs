@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Application.Common.Mappings
+namespace CleanArchitecture.Application.Common.Mappings
 {
     public class MappingProfile : Profile
     {

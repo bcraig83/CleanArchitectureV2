@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Application.Common.Interfaces
+namespace CleanArchitecture.Application.Common.Interfaces
 {
     internal interface IDateTimeService
     {

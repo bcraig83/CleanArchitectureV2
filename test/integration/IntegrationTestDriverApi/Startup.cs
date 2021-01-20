@@ -1,5 +1,6 @@
 using CleanArchitecture.Application;
 using CleanArchitecture.DataAccess;
+using CleanArchitecture.Integration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,7 @@ namespace CleanArchitecture.IntegrationTestDriverApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplication(Configuration);
+            services.AddIntegration(Configuration);
             services.AddDataAccess(Configuration);
         }
 

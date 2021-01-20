@@ -1,0 +1,32 @@
+﻿@page
+@model WebUI.Pages.GetBooksModel
+@{
+    ViewData["Title"] = "Books";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Publisher</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.Books)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -15,8 +15,10 @@ namespace CleanArchitecture.Application
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            var options = configuration.GetSection(ApplicationOptions.AppSettingsFileLocation).Get<ApplicationOptions>()
-                ?? new ApplicationOptions();
+            var options = new ApplicationOptions
+            {
+                StoreAuthorInLowercase = configuration.GetValue<bool>("Application:StoreAuthorInLowercase")
+            };
             services.AddScoped(x => options);
 
             services.AddScoped<BookMapper>();

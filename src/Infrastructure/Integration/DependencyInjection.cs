@@ -12,8 +12,11 @@ namespace CleanArchitecture.Integration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            var options = configuration.GetSection(IntegrationOptions.AppSettingsFileLocation).Get<IntegrationOptions>()
-                ?? new IntegrationOptions();
+            // TODO: figure out why the regular binding approach isn't working!
+            var options = new IntegrationOptions
+            {
+                SomeBoolean = configuration.GetValue<bool>("Infrastructure:Integration:SomeBoolean")
+            };
             services.AddScoped(x => options);
 
             services.AddTransient<IDateTimeService, DateTimeService>();

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IntegrationTestDriverApi
+namespace CleanArchitecture.IntegrationTestDriverApi
 {
     public class Startup
     {

@@ -5,6 +5,8 @@
     <UserSecretsId>ce4245cd-d8a7-423f-a0cb-69f265ddf132</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>
+    <AssemblyName>IntegrationTestDriverApi</AssemblyName>
+    <RootNamespace>CleanArchitecture.IntegrationTestDriverApi</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

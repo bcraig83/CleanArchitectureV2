@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Domain.Entities;
+using CleanArchitecture.Domain.Events;
 using Microsoft.Extensions.Logging;
 
 namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Services
@@ -32,13 +33,13 @@ namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Servi
             };
 
             // TODO:
-            //var @event = new BookCreatedEvent
-            //{
-            //    Title = entity.Title,
-            //    Author = entity.Author
-            //};
+            var bookCreatedEvent = new BookCreatedEvent
+            {
+                Title = entity.Title,
+                Author = entity.Author
+            };
 
-            //entity.Events.Add(@event);
+            entity.DomainEvents.Add(bookCreatedEvent);
 
             return entity;
         }

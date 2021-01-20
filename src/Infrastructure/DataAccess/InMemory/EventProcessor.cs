@@ -10,7 +10,7 @@ namespace CleanArchitecture.DataAccess.InMemory
 
         public EventProcessor(IMediator mediator)
         {
-            _mediator = mediator ?? throw new System.ArgumentNullException(nameof(mediator));
+            _mediator = mediator;
         }
 
         public async Task ProcessEvents(DomainEntity entity)

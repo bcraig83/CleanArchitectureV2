@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CleanArchitecture.Domain.Entities
 {
-    public class BookEntity : BaseEntity, IHasDomainEvent
+    public class BookEntity : DomainEntity, IHasDomainEvent
     {
         public string Title { get; set; }
         public string Author { get; set; }

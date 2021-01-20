@@ -2,7 +2,7 @@
 
 namespace CleanArchitecture.Domain.Common.Entities
 {
-    public abstract class BaseEntity
+    public abstract class DomainEntity
     {
         public int Id { get; set; }
 

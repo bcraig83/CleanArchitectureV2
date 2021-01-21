@@ -28,9 +28,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{667C7D4E-7892-4206-8848-A7B3C776387C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "exploratory", "exploratory", "{E275002F-BF55-437E-8FED-8CF50908C843}"
-	ProjectSection(SolutionItems) = preProject
-		test\exploratory\.gitkeep = test\exploratory\.gitkeep
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.IntegrationTests", "test\integration\Application.IntegrationTests\Application.IntegrationTests.csproj", "{A944CEB7-F65D-4B63-9D6B-8DEF3D95618B}"
 EndProject

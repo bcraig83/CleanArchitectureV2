@@ -19,7 +19,7 @@ namespace CleanArchitecture.Application.Common.Behaviours
         {
             var requestName = typeof(TRequest).Name;
 
-            _logger.LogInformation("caSample Request: {Name} {@Request}", requestName, request);
+            _logger.LogInformation("Request received: {Name} {@Request}", requestName, request);
         }
     }
 }

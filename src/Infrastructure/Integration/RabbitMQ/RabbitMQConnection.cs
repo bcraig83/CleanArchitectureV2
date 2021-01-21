@@ -4,9 +4,9 @@ using System;
 using System.IO;
 using System.Threading;
 
-namespace CleanArchitecture.Application.Common.RabbitMQ
+namespace CleanArchitecture.Integration.RabbitMQ
 {
-    public class RabbitMQConnection : IRabbitMQConnection
+    public class RabbitMQConnection
     {
         private readonly IConnectionFactory _connectionFactory;
         private IConnection _connection;

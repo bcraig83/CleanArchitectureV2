@@ -1,18 +1,17 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Application.Features.Books.Commands.CreateBook.Services;
+﻿using CleanArchitecture.Integration.RabbitMQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CleanArchitecture.Application
+namespace CleanArchitecture.Integration
 {
     public static class ApplicationBuilderExtentions
     {
-        public static IRabbitMQConsumer Listener { get; set; }
+        public static CreateBookCommandConsumer CreateBookCommandConsumer { get; set; }
 
         public static IApplicationBuilder UseRabbitListener(this IApplicationBuilder app)
         {
-            Listener = app.ApplicationServices.GetService<CreateBookCommandConsumer>();
+            CreateBookCommandConsumer = app.ApplicationServices.GetService<CreateBookCommandConsumer>();
             var life = app.ApplicationServices.GetService<IHostApplicationLifetime>();
 
             life.ApplicationStarted.Register(OnStarted);
@@ -23,12 +22,12 @@ namespace CleanArchitecture.Application
 
         private static void OnStarted()
         {
-            Listener.Consume();
+            CreateBookCommandConsumer.Consume();
         }
 
         private static void OnStopping()
         {
-            Listener.Disconnect();
+            CreateBookCommandConsumer.Disconnect();
         }
     }
 }

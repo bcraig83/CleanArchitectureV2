@@ -1,5 +1,4 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
-using CleanArchitecture.Application.Common.RabbitMQ;
+﻿using CleanArchitecture.Application.Features.Books.Commands.CreateBook;
 using MediatR;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
@@ -7,15 +6,15 @@ using RabbitMQ.Client.Events;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Services
+namespace CleanArchitecture.Integration.RabbitMQ
 {
-    public class CreateBookCommandConsumer : IRabbitMQConsumer
+    public class CreateBookCommandConsumer
     {
-        private readonly IRabbitMQConnection _connection;
+        private readonly RabbitMQConnection _connection;
         private readonly IMediator _mediator;
 
         public CreateBookCommandConsumer(
-            IRabbitMQConnection connection,
+            RabbitMQConnection connection,
             IMediator mediator)
         {
             _connection = connection ?? throw new System.ArgumentNullException(nameof(connection));
@@ -24,6 +23,7 @@ namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Servi
 
         public void Consume()
         {
+            // Queue name could be configurable?
             var channel = _connection.CreateModel();
             channel.QueueDeclare("CreateBook", false, false, false, null);
 

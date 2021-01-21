@@ -53,6 +53,9 @@ namespace WebUI
             {
                 endpoints.MapRazorPages();
             });
+
+            //Initilize Rabbit Listener in ApplicationBuilderExtentions
+            app.UseRabbitListener();
         }
     }
 }

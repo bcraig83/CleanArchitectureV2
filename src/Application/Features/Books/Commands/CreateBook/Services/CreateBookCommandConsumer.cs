@@ -2,8 +2,10 @@
 using CleanArchitecture.Application.Common.RabbitMQ;
 using MediatR;
 using Newtonsoft.Json;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Services
 {
@@ -13,19 +15,27 @@ namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Servi
         private readonly IMediator _mediator;
 
         public CreateBookCommandConsumer(
-            IRabbitMQConnection connection, 
+            IRabbitMQConnection connection,
             IMediator mediator)
         {
             _connection = connection ?? throw new System.ArgumentNullException(nameof(connection));
             _mediator = mediator ?? throw new System.ArgumentNullException(nameof(mediator));
         }
 
-        void IRabbitMQConsumer.Consume()
+        public void Consume()
         {
-            throw new System.NotImplementedException();
+            var channel = _connection.CreateModel();
+            channel.QueueDeclare("CreateBook", false, false, false, null);
+
+            var consumer = new AsyncEventingBasicConsumer(channel);
+
+            //Create event when something receive
+            consumer.Received += ReceivedEvent;
+
+            channel.BasicConsume("CreateBook", true, consumer);
         }
 
-        async void IRabbitMQConsumer.ReceivedEvent(object sender, BasicDeliverEventArgs e)
+        private async Task ReceivedEvent(object sender, BasicDeliverEventArgs e)
         {
             if (e.RoutingKey == "CreateBook")
             {
@@ -38,7 +48,7 @@ namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Servi
             }
         }
 
-        void IRabbitMQConsumer.Disconnect()
+        public void Disconnect()
         {
             _connection.Dispose();
         }

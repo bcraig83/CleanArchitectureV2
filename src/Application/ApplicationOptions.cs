@@ -4,6 +4,14 @@
     {
         public bool StoreAuthorInLowercase { get; set; } = false;
         public bool IsRabbitMqEnabled { get; set; } = false;
+
+        public override string ToString()
+        {
+            return "{{" +
+                $"{nameof(StoreAuthorInLowercase)}={StoreAuthorInLowercase}, " +
+                $"{nameof(IsRabbitMqEnabled)}={IsRabbitMqEnabled}" +
+                "}}";
+        }
     }
 
     public class RabbitMQOptions

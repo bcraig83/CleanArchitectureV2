@@ -15,7 +15,7 @@ namespace CleanArchitecture.DataAccess
             {
                 PersistenceMechanism = configuration.GetValue<string>("Infrastructure:DataAccess:PersistenceMechanism")
             };
-            services.AddScoped(x => options);
+            services.AddSingleton(x => options);
 
             switch (options.PersistenceMechanism)
             {

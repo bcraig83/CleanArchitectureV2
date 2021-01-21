@@ -17,7 +17,7 @@ namespace CleanArchitecture.Integration
             {
                 SomeBoolean = configuration.GetValue<bool>("Infrastructure:Integration:SomeBoolean")
             };
-            services.AddScoped(x => options);
+            services.AddSingleton(x => options);
 
             services.AddTransient<IDateTimeService, DateTimeService>();
             services.AddTransient<IEmailSender, EmailSender>();

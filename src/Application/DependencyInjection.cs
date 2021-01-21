@@ -19,16 +19,16 @@ namespace CleanArchitecture.Application
             IConfiguration configuration)
         {
             var options = BuildApplicationOptions(configuration);
-            services.AddScoped(x => options);
+            services.AddSingleton(x => options);
 
             if (options.IsRabbitMqEnabled)
             {
                 RabbitMQOptions rabbitMqOptions = BuildRabbitMQOptions(configuration);
-                services.AddScoped(x => rabbitMqOptions);
+                services.AddSingleton(x => rabbitMqOptions);
                 services.AddRabbitMQ(rabbitMqOptions);
             }
 
-            services.AddScoped<BookMapper>();
+            services.AddTransient<BookMapper>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());

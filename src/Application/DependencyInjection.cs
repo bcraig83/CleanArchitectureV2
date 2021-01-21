@@ -85,6 +85,8 @@ namespace CleanArchitecture.Application
                 return new RabbitMQConnection(factory);
             });
 
+            services.AddSingleton<CreateBookCommandConsumer>();
+
             return services;
         }
     }

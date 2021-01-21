@@ -7,12 +7,12 @@ using System.Text;
 
 namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Services
 {
-    public class CreateBookConsumer : IRabbitMQConsumer
+    public class CreateBookCommandConsumer : IRabbitMQConsumer
     {
         private readonly IRabbitMQConnection _connection;
         private readonly IMediator _mediator;
 
-        public CreateBookConsumer(
+        public CreateBookCommandConsumer(
             IRabbitMQConnection connection, 
             IMediator mediator)
         {

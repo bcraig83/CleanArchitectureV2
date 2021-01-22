@@ -69,7 +69,7 @@ namespace CleanArchitecture.Integration
                 return new RabbitMQConnection(factory);
             });
 
-            services.AddSingleton<CreateBookCommandConsumer>();
+            services.AddSingleton<MessageConsumer>();
 
             return services;
         }

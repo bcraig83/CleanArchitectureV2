@@ -7,11 +7,11 @@ namespace CleanArchitecture.Integration
 {
     public static class ApplicationBuilderExtentions
     {
-        public static CreateBookCommandConsumer CreateBookCommandConsumer { get; set; }
+        public static MessageConsumer CreateBookCommandConsumer { get; set; }
 
         public static IApplicationBuilder UseRabbitListener(this IApplicationBuilder app)
         {
-            CreateBookCommandConsumer = app.ApplicationServices.GetService<CreateBookCommandConsumer>();
+            CreateBookCommandConsumer = app.ApplicationServices.GetService<MessageConsumer>();
             var life = app.ApplicationServices.GetService<IHostApplicationLifetime>();
 
             life.ApplicationStarted.Register(OnStarted);

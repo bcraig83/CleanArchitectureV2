@@ -22,9 +22,9 @@ namespace SandboxAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] CreateBookCommand command)
+        public ActionResult Post([FromBody] Message<CreateBookCommand> command)
         {
-            _producer.Publish("CreateBook", command);
+            _producer.Publish("BookWorm", command);
 
             return Ok();
         }

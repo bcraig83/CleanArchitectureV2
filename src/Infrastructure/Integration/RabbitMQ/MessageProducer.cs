@@ -25,6 +25,9 @@ namespace CleanArchitecture.Integration.RabbitMQ
             properties.Persistent = true;
             properties.DeliveryMode = 2;
 
+            //properties.Type = "CreateBookCommand";
+            properties.Type = publishModel.GetType().GetProperty("Payload").PropertyType.Name;
+
             channel.ConfirmSelect();
             channel.BasicPublish("", queueName, true, properties, body);
             channel.WaitForConfirmsOrDie();

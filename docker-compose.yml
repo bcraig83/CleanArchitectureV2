@@ -9,3 +9,26 @@ services:
     ports:
       - 5672:5672
       - 8080:15672
+  webui:
+    build:
+      context: .
+      dockerfile: ./src/Presentation/WebUI/Dockerfile
+    image: webui:dev
+    environment: 
+      - Infrastructure__Integration__IsRabbitMQEnabled=true
+      - Infrastructure__Integration__RabbitMQ__HostName=rabbit
+      - Infrastructure__Integration__RabbitMQ__UserName=test
+      - Infrastructure__Integration__RabbitMQ__Password=user
+    ports:
+      - 8008:80
+  sandboxapi:
+    build:
+      context: .
+      dockerfile: ./test/exploratory/SandboxAPI/Dockerfile
+    image: sandboxapi:dev
+    environment: 
+      - Infrastructure__Integration__RabbitMQ__HostName=rabbit
+      - Infrastructure__Integration__RabbitMQ__UserName=test
+      - Infrastructure__Integration__RabbitMQ__Password=user
+    ports:
+      - 7008:80

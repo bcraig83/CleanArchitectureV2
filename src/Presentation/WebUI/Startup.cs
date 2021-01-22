@@ -53,6 +53,12 @@ namespace WebUI
             {
                 endpoints.MapRazorPages();
             });
+
+            var options = app.ApplicationServices.GetService<IntegrationOptions>();
+            if (options != null && options.IsRabbitMqEnabled)
+            {
+                app.UseRabbitListener();
+            }
         }
     }
 }

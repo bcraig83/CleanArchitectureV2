@@ -12,7 +12,7 @@ namespace CleanArchitecture.Application.Features.Books.Commands.CreateBook.Servi
             ILogger<BookMapper> logger,
             ApplicationOptions options)
         {
-            logger.LogInformation($"Options: {_options}");
+            logger.LogInformation($"ApplicationOptions: {_options}");
 
             _options = options ?? throw new System.ArgumentNullException(nameof(options));
         }

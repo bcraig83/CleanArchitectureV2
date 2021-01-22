@@ -15,13 +15,10 @@ namespace CleanArchitecture.Application
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            var options = new ApplicationOptions
-            {
-                StoreAuthorInLowercase = configuration.GetValue<bool>("Application:StoreAuthorInLowercase")
-            };
-            services.AddScoped(x => options);
+            var options = BuildApplicationOptions(configuration);
+            services.AddSingleton(x => options);
 
-            services.AddScoped<BookMapper>();
+            services.AddTransient<BookMapper>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
@@ -31,6 +28,14 @@ namespace CleanArchitecture.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
             return services;
+        }
+
+        private static ApplicationOptions BuildApplicationOptions(IConfiguration configuration)
+        {
+            return new ApplicationOptions
+            {
+                StoreAuthorInLowercase = configuration.GetValue<bool>("Application:StoreAuthorInLowercase")
+            };
         }
     }
 }

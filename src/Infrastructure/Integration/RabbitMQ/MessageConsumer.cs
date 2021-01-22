@@ -1,6 +1,7 @@
 ﻿using CleanArchitecture.Application.Features.Books.Commands.CreateBook;
 using MediatR;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
@@ -37,6 +38,7 @@ namespace CleanArchitecture.Integration.RabbitMQ
 
         private async Task ReceivedEvent(object sender, BasicDeliverEventArgs e)
         {
+            // I don't think we need this???
             if (e.RoutingKey != "BookWorm") // this will change to BookService, or DeathNotificationService, etc
             {
                 return;
@@ -44,9 +46,9 @@ namespace CleanArchitecture.Integration.RabbitMQ
 
             try
             {
-                var type = e.BasicProperties.Type;
-
                 var body = Encoding.UTF8.GetString(e.Body.Span);
+                JObject jobject = JsonConvert.DeserializeObject<JObject>(body);
+                var type = jobject.Value<string>("Type");
 
                 switch (type)
                 {

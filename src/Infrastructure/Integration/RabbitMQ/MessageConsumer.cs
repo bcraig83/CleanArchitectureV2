@@ -18,8 +18,8 @@ namespace CleanArchitecture.Integration.RabbitMQ
             RabbitMQConnection connection,
             IMediator mediator)
         {
-            _connection = connection ?? throw new System.ArgumentNullException(nameof(connection));
-            _mediator = mediator ?? throw new System.ArgumentNullException(nameof(mediator));
+            _connection = connection ?? throw new ArgumentNullException(nameof(connection));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         public void Consume()
@@ -30,7 +30,6 @@ namespace CleanArchitecture.Integration.RabbitMQ
 
             var consumer = new AsyncEventingBasicConsumer(channel);
 
-            //Create event when something receive
             consumer.Received += ReceivedEvent;
 
             channel.BasicConsume("BookWorm", true, consumer);

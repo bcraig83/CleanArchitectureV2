@@ -13,7 +13,7 @@ namespace CleanArchitecture.Integration.RabbitMQ
             _connection = connection ?? throw new ArgumentNullException(nameof(connection));
         }
 
-        public void Publish<T>(string queueName, T publishModel)
+        public void Publish<T>(string queueName, Message<T> publishModel)
         {
             using var channel = _connection.CreateModel();
 
@@ -25,7 +25,7 @@ namespace CleanArchitecture.Integration.RabbitMQ
             properties.Persistent = true;
             properties.DeliveryMode = 2;
 
-            properties.Type = publishModel.GetType().GetProperty("Payload").PropertyType.Name;
+            properties.Type = publishModel.Payload.GetType().Name;
 
             channel.ConfirmSelect();
             channel.BasicPublish("", queueName, true, properties, body);

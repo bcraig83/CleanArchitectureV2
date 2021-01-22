@@ -38,39 +38,41 @@ namespace CleanArchitecture.Integration.RabbitMQ
 
         private async Task ReceivedEvent(object sender, BasicDeliverEventArgs e)
         {
-            if (e.RoutingKey == "BookWorm") // this will change to BookService, or DeathNotificationService, etc
+            if (e.RoutingKey != "BookWorm") // this will change to BookService, or DeathNotificationService, etc
             {
-                try
+                return;
+            }
+
+            try
+            {
+                var type = e.BasicProperties.Type;
+
+                var body = Encoding.UTF8.GetString(e.Body.Span);
+
+                switch (type)
                 {
-                    var type = e.BasicProperties.Type;
+                    case "CreateBookCommand":
+                        var message = JsonConvert.DeserializeObject<Message<CreateBookCommand>>(body);
+                        var command = message.Payload;
+                        await _mediator.Send(command);
+                        break;
 
-                    var body = Encoding.UTF8.GetString(e.Body.Span);
-
-                    switch (type)
-                    {
-                        case "CreateBookCommand":
-                            var message = JsonConvert.DeserializeObject<Message<CreateBookCommand>>(body);
-                            var command = message.Payload;
-                            await _mediator.Send(command);
-                            break;
-
-                        default:
-                            Console.WriteLine("Invalid type received");
-                            break;
-                    }
-
-                    // TODO: do we need mapping between the command object and what comes off the queue? Probably.
+                    default:
+                        Console.WriteLine("Invalid type received");
+                        break;
                 }
-                catch (JsonSerializationException jse)
-                {
-                    // TODO: use logger
-                    Console.WriteLine("Serialization error! Exception message: " + jse.Message);
-                }
-                catch (Exception exception)
-                {
-                    // TODO: use logger
-                    Console.WriteLine("some other error! Exception message: " + exception.Message);
-                }
+
+                // TODO: do we need mapping between the command object and what comes off the queue? Probably.
+            }
+            catch (JsonSerializationException jse)
+            {
+                // TODO: use logger
+                Console.WriteLine("Serialization error! Exception message: " + jse.Message);
+            }
+            catch (Exception exception)
+            {
+                // TODO: use logger
+                Console.WriteLine("some other error! Exception message: " + exception.Message);
             }
         }
 

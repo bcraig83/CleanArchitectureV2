@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Application.Features.Books.Commands.CreateBook;
+using CleanArchitecture.Integration.Messaging;
 using MediatR;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -8,7 +9,7 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Integration.RabbitMQ
+namespace CleanArchitecture.Integration.Messaging.RabbitMQ
 {
     public class MessageConsumer
     {

@@ -1,5 +1,5 @@
 using CleanArchitecture.Integration;
-using CleanArchitecture.Integration.RabbitMQ;
+using CleanArchitecture.Integration.Messaging.RabbitMQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

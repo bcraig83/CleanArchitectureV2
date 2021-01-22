@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Threading;
 
-namespace CleanArchitecture.Integration.RabbitMQ
+namespace CleanArchitecture.Integration.Messaging.RabbitMQ
 {
     public class RabbitMQConnection
     {

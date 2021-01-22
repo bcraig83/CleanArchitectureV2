@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CleanArchitecture.Integration.RabbitMQ
+namespace CleanArchitecture.Integration.Messaging
 {
     public class Message<T>
     {

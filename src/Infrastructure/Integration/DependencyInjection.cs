@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Application.Common.Interfaces;
 using CleanArchitecture.Integration.Email;
-using CleanArchitecture.Integration.RabbitMQ;
+using CleanArchitecture.Integration.Messaging.RabbitMQ;
 using CleanArchitecture.Integration.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

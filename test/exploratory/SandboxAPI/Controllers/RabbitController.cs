@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Application.Features.Books.Commands.CreateBook;
-using CleanArchitecture.Integration.RabbitMQ;
+using CleanArchitecture.Integration.Messaging;
+using CleanArchitecture.Integration.Messaging.RabbitMQ;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SandboxAPI.Controllers

@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using CleanArchitecture.Integration.Messaging;
+using Newtonsoft.Json;
 using System;
 using System.Text;
 
-namespace CleanArchitecture.Integration.RabbitMQ
+namespace CleanArchitecture.Integration.Messaging.RabbitMQ
 {
     public class MessageProducer
     {

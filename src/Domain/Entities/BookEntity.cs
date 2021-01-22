@@ -1,5 +1,4 @@
 ﻿using CleanArchitecture.Domain.Common;
-using System.Collections.Generic;
 
 namespace CleanArchitecture.Domain.Entities
 {

@@ -4,6 +4,7 @@
     {
         public bool IsRabbitMqEnabled { get; set; } = false;
     }
+
     public class RabbitMQOptions
     {
         public string HostName { get; set; }

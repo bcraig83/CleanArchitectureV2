@@ -22,7 +22,7 @@ namespace CleanArchitecture.Integration
 
             if (options.IsRabbitMqEnabled)
             {
-                RabbitMQOptions rabbitMqOptions = BuildRabbitMQOptions(configuration);
+                var rabbitMqOptions = BuildRabbitMQOptions(configuration);
                 services.AddSingleton(x => rabbitMqOptions);
                 services.AddRabbitMQ(rabbitMqOptions);
             }

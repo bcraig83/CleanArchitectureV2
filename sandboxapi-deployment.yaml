@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: sandboxapi
+  name: sandboxapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: sandboxapi
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: sandboxapi
+    spec:
+      containers:
+      - env:
+        - name: Infrastructure__Integration__RabbitMQ__HostName
+          value: rabbit
+        - name: Infrastructure__Integration__RabbitMQ__Password
+          value: user
+        - name: Infrastructure__Integration__RabbitMQ__UserName
+          value: test
+        image: sandboxapi:dev
+        imagePullPolicy: ""
+        name: sandboxapi
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

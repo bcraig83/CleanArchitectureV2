@@ -2,7 +2,7 @@
 using CleanArchitecture.Integration.Messaging;
 using CleanArchitecture.Integration.Messaging.RabbitMQ;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace SandboxAPI.Controllers
 {
@@ -11,13 +11,10 @@ namespace SandboxAPI.Controllers
     public class RabbitController : ControllerBase
     {
         private readonly MessageProducer _producer;
-        private readonly Logger<RabbitController> _logger;
 
-        public RabbitController(MessageProducer producer,
-            Logger<RabbitController> logger)
+        public RabbitController(MessageProducer producer)
         {
             _producer = producer;
-            _logger = logger;
         }
 
         [HttpGet("health")]
@@ -29,7 +26,7 @@ namespace SandboxAPI.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] Message<CreateBookCommand> command)
         {
-            _logger.LogInformation($"Attempting to put message onto queue. Id: {command.Id}. Type: {command.Type}");
+            Console.WriteLine($"Attempting to put message onto queue. Id: {command.Id}. Type: {command.Type}");
 
             _producer.Publish("BookWorm", command);
 

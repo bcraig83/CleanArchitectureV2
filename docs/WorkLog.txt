@@ -1,0 +1,30 @@
+Summary from session 1
+
+- I discussed the application and how we use Rabbit MQ
+- I demonstrtated how I test that everything is getting wired up correctly.
+- I refactored the code on-the-fly, as I came up with improvements.
+- I put the application into a docker-compose file and proved that all worked.
+- I installed minikube and had started playing around with it.
+- I ran Kompose to generate K8S yaml files.
+
+The goals for session 2 are
+
+- Get a k8s cluster running locally - DONE. (Started with minikube, switched to docker for desktop.)
+- Deploy my application to that cluster and prove that it works
+- Deploy my application to an instance of Azure K8S Service (AKS) and prove that it works
+- Add Azure Service Bus?
+
+
+Producer --> RabbitMQ --> Consumer
+
+
+Code Locally --> Push to git repo --> Publish docker image --> Azure Docker Registry --> Deploy image(s) to K8S
+
+
+
+Use minikube docker daemon and registry:
+>@FOR /f "tokens=*" %i IN ('minikube -p minikube docker-env') DO @%i
+
+
+Possibly uninstall minikube to avoid any conflicts in the future.
+

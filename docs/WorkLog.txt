@@ -28,3 +28,8 @@ Use minikube docker daemon and registry:
 
 Possibly uninstall minikube to avoid any conflicts in the future.
 
+
+
+To start k8s proxy:
+
+kubectl proxy

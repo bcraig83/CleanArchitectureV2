@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RabbitMQ.Client;
+using System;
 
 namespace SandboxAPI
 {
@@ -37,6 +38,8 @@ namespace SandboxAPI
         {
             var rabbitMqOptions = BuildRabbitMQOptions(Configuration);
             services.AddSingleton(x => rabbitMqOptions);
+
+            Console.WriteLine($"RabbitMQOptions: {rabbitMqOptions}");
 
             services.AddSingleton(sp =>
             {

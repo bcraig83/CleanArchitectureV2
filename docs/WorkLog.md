@@ -1,4 +1,6 @@
-Summary from session 1
+# 2021-01-25
+
+## Summary from session 1
 
 - I discussed the application and how we use Rabbit MQ
 - I demonstrtated how I test that everything is getting wired up correctly.
@@ -7,13 +9,14 @@ Summary from session 1
 - I installed minikube and had started playing around with it.
 - I ran Kompose to generate K8S yaml files.
 
-The goals for session 2 are
+## The goals for session 2 are
 
 - Get a k8s cluster running locally - DONE. (Started with minikube, switched to docker for desktop.)
-- Deploy my application to that cluster and prove that it works
+- Deploy my application to that cluster and prove that it works - DONE
 - Deploy my application to an instance of Azure K8S Service (AKS) and prove that it works
 - Add Azure Service Bus?
 
+## Notes
 
 Producer --> RabbitMQ --> Consumer
 
@@ -33,3 +36,18 @@ Possibly uninstall minikube to avoid any conflicts in the future.
 To start k8s proxy:
 
 kubectl proxy
+
+
+
+
+
+
+az aks get-credentials --resource-group rg-bookworm --name aks-bookworm
+
+
+## Review
+
+
+
+
+# 2021-01-25

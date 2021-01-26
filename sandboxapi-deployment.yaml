@@ -31,7 +31,7 @@ spec:
           value: user
         - name: Infrastructure__Integration__RabbitMQ__UserName
           value: test
-        image: sandboxapi:dev
+        image: bcraig83/sandboxapi:dev
         imagePullPolicy: ""
         name: sandboxapi
         ports:

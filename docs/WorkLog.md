@@ -1,4 +1,4 @@
-# 2021-01-25
+# 2021-01-25 (Session 2)
 
 ## Summary from session 1
 
@@ -47,7 +47,42 @@ az aks get-credentials --resource-group rg-bookworm --name aks-bookworm
 
 ## Review
 
+- What went well:
+    - Docker for desktop K8S implementation
+    - Talking through the blockers and rewatching the video of those blockers, helped solve them.
+    - Recording helped keep focus and motivation.
+    - Got the local cluster working
+    - Apply / delete scripts (can be improved)
+- What didn't go so well
+    - Minikube
+    - A bit painful grabbing logs from k8s
+    - My crummy internet speed, esp upload
+    - Might need to tidy up our yaml files.
+    - Neglected updates to readme.
+    - Lack of TDD.
+    - Need to take the time to properly work through code changes (compile, test, etc)
+
+# 2021-01-26 (Session 3)
+
+## Goals
+
+- Deploy my application to an instance of Azure K8S Service (AKS) and prove that it works
+- Add Azure Service Bus
+
+
+## Notes
+
+http://51.104.175.97:7008/api/Books/health
+
+
+Internet --> Ingress Controller --> Cluster --> Service
 
 
 
-# 2021-01-25
+helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.replicaCount=1 --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+
+
+kubectl get services -o wide -w nginx-ingress-ingress-nginx-controller
+
+Maybe expose the deployments using "NodePort" service for now? It's rough and ready, but it would work...
+Actually..

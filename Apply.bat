@@ -1,3 +1,4 @@
+kubectl apply -f .\ingress.yaml
 kubectl apply -f .\rabbit-deployment.yaml
 kubectl apply -f .\rabbit-service.yaml
 kubectl apply -f .\sandboxapi-deployment.yaml

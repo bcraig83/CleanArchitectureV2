@@ -1,3 +1,4 @@
+kubectl delete -f .\ingress.yaml
 kubectl delete -f .\rabbit-deployment.yaml
 kubectl delete -f .\rabbit-service.yaml
 kubectl delete -f .\sandboxapi-deployment.yaml

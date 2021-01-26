@@ -33,7 +33,7 @@ spec:
           value: user
         - name: Infrastructure__Integration__RabbitMQ__UserName
           value: test
-        image: webui:dev
+        image: bcraig83/webui:dev
         imagePullPolicy: ""
         name: webui
         ports:

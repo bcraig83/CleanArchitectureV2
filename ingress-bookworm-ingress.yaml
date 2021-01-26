@@ -1,0 +1,56 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1beta1","kind":"Ingress","metadata":{"annotations":{"kubernetes.io/ingress.class":"nginx","nginx.ingress.kubernetes.io/rewrite-target":"/$1","nginx.ingress.kubernetes.io/ssl-redirect":"false","nginx.ingress.kubernetes.io/use-regex":"true"},"name":"bookworm-ingress","namespace":"default"},"spec":{"rules":[{"http":{"paths":[{"backend":{"serviceName":"sandboxapi","servicePort":7008},"path":"/"}]}}]}}
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  creationTimestamp: "2021-01-26T11:52:38Z"
+  generation: 3
+  managedFields:
+  - apiVersion: networking.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:kubernetes.io/ingress.class: {}
+          f:nginx.ingress.kubernetes.io/rewrite-target: {}
+          f:nginx.ingress.kubernetes.io/ssl-redirect: {}
+          f:nginx.ingress.kubernetes.io/use-regex: {}
+      f:spec:
+        f:rules: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-01-26T11:52:38Z"
+  - apiVersion: networking.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: nginx-ingress-controller
+    operation: Update
+    time: "2021-01-26T11:53:22Z"
+  name: bookworm-ingress
+  namespace: default
+  resourceVersion: "146072"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/bookworm-ingress
+  uid: 8b47d0de-4a72-4688-a53c-0f59c95bd34b
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: sandboxapi/
+          servicePort: 80
+        path: /
+        pathType: ImplementationSpecific
+status:
+  loadBalancer:
+    ingress:
+    - ip: 20.67.194.131

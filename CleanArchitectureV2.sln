@@ -35,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "src\Presentation\WebUI\WebUI.csproj", "{0E27CDF9-7ABF-4430-BF77-2186A2C62CE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandboxAPI", "test\exploratory\SandboxAPI\SandboxAPI.csproj", "{B9D5E13C-0800-44B6-8F2C-3220D8ADC747}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SandboxAPI", "test\exploratory\SandboxAPI\SandboxAPI.csproj", "{B9D5E13C-0800-44B6-8F2C-3220D8ADC747}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

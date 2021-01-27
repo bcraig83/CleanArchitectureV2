@@ -18,7 +18,7 @@ namespace CleanArchitecture.Integration.Messaging.AzureServiceBus
             var sender = client.CreateSender(Constants.QUEUE_NAME);
 
             // create a message that we can send
-            var message = new ServiceBusMessage(rawMessage);
+            var message = new ServiceBusMessage("Hello World!");
 
             // send the message
             await sender.SendMessageAsync(message);

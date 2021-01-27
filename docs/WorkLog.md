@@ -67,6 +67,7 @@ az aks get-credentials --resource-group rg-bookworm --name aks-bookworm
 ## Goals
 
 - Deploy my application to an instance of Azure K8S Service (AKS) and prove that it works
+    - Be able to access "health" endpoint from curl command
 - Add Azure Service Bus
 
 
@@ -86,3 +87,11 @@ kubectl get services -o wide -w nginx-ingress-ingress-nginx-controller
 
 Maybe expose the deployments using "NodePort" service for now? It's rough and ready, but it would work...
 Actually..
+
+
+## Ideas
+
+### Be able to access "health" endpoint from curl command / Postman
+
+- I could try accessing that endpoint using "curl" from another pod?
+

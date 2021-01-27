@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RabbitMQ.Client;
 using System;
+using RabbitMqMessageProducer = CleanArchitecture.Integration.Messaging.RabbitMQ.MessageProducer;
+using ServiceBusMessageProducer = CleanArchitecture.Integration.Messaging.AzureServiceBus.MessageProducer;
 
 namespace SandboxAPI
 {
@@ -25,7 +27,8 @@ namespace SandboxAPI
         {
             AddRabbitMQ(services);
 
-            services.AddSingleton<MessageProducer>();
+            services.AddSingleton<RabbitMqMessageProducer>();
+            services.AddSingleton<ServiceBusMessageProducer>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
